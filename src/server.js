@@ -8,7 +8,10 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",                 // Cho phép bạn test ở máy cá nhân
+        "https://ten-du-an-cua-ban.vercel.app" // Link Frontend thật trên Vercel
+    ],
     credentials: true,
 }));
 
