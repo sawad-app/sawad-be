@@ -65,11 +65,11 @@ async function main() {
 
                 await db.execute(
                     `INSERT INTO vehicles 
-                    (category_id, brand_id, name, capacity, transmission, year, reg_code, price_a_plus, price_a, price_b) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    (category_id, brand_id, name, capacity, transmission, year, reg_code, price_a_plus, price_a, price_b, createdAt, updatedAt) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())`, // Thêm 2 cột và 2 hàm NOW()
                     [
                         categoryId,
-                        brandMap[brandName.trim()], // Lấy ID của hãng thuộc category này
+                        brandMap[brandName.trim()],
                         name,
                         row[1] ?? null,
                         row[2] ?? null,

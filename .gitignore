@@ -9,7 +9,7 @@ out/
 
 # Environment variables (Bảo mật - Không được đẩy lên)
 .env
-
+.env.production
 
 # Logs
 npm-debug.log*

@@ -1,5 +1,7 @@
 import { Sequelize } from "sequelize";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.production", override: true });
 
 export const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -7,9 +9,15 @@ export const sequelize = new Sequelize(
     process.env.DB_PASSWORD,
     {
         host: process.env.DB_HOST,
-        port: 3306,
+        port: process.env.DB_PORT,
         dialect: 'mysql',
         logging: false,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false // Quan trọng để kết nối với Aiven/Render
+            }
+        }
     }
 );
 
