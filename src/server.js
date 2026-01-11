@@ -10,7 +10,7 @@ const port = process.env.PORT || 3001;
 app.use(cors({
     origin: [
         "http://localhost:5173",                 // Cho phép bạn test ở máy cá nhân
-        "https://sawad-fe.vercel.app/" // Link Frontend thật trên Vercel
+        "https://sawad-fe.vercel.app" // Link Frontend thật trên Vercel
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
